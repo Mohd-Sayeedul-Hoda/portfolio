@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fadd9e; /* Quanta game of life cream background */
+  --foreground: #1c1c1c; /* Dark text */
+  --accent: #d94676; /* Magenta accent */
+  --accent-glow: rgba(217, 70, 118, 0.4);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Glassmorphism utilities updated for light theme */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px var(--accent-glow);
+}

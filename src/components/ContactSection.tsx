@@ -1,0 +1,43 @@
+import { motion } from 'framer-motion';
+import { Mail } from 'lucide-react';
+import { glassStyle } from '../styles/glassStyles';
+
+export default function ContactSection() {
+    return (
+        <section id="contact" className="min-h-screen py-20 px-6 flex items-center">
+            <div className="max-w-2xl mx-auto w-full">
+                <div className="rounded-2xl p-10" style={glassStyle}>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                    >
+                        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                            Get in Touch
+                        </h1>
+
+                        <p className="text-lg text-foreground/70 leading-relaxed mb-10">
+                            I’m always happy to chat about Go routines, Kubernetes,
+                            or the latest in frontend ecosystems. Send an email, and let’s connect!
+                        </p>
+
+                        <motion.a
+                            href="mailto:contact@example.com"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold"
+                            style={{
+                                background: '#5c5046',
+                                color: '#ffffff',
+                            }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <Mail size={20} />
+                            <span>Email Me</span>
+                        </motion.a>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+}

@@ -1,7 +1,11 @@
 import { Canvas } from '@react-three/fiber';
 import GameOfLife from './GameOfLife';
 
-export default function BackgroundSimulation() {
+interface BackgroundSimulationProps {
+    isPaused: boolean;
+}
+
+export default function BackgroundSimulation({ isPaused }: BackgroundSimulationProps) {
     return (
         <div className="fixed inset-0 z-0 pointer-events-none" style={{ background: 'var(--background)' }}>
             <Canvas
@@ -17,7 +21,7 @@ export default function BackgroundSimulation() {
                 {/* Thin isometric grid on the floor matching the portfolio theme */}
                 <gridHelper args={[200, 200, '#e8c78a', '#e8c78a']} position={[0, -0.01, 0]} />
 
-                <GameOfLife />
+                <GameOfLife isPaused={isPaused} />
             </Canvas>
         </div>
     );

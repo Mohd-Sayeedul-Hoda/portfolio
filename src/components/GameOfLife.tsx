@@ -47,7 +47,11 @@ function getIndex(x: number, y: number) {
     return x * GRID_SIZE + y;
 }
 
-export default function GameOfLife() {
+interface GameOfLifeProps {
+    isPaused: boolean;
+}
+
+export default function GameOfLife({ isPaused }: GameOfLifeProps) {
     const meshRef = useRef<THREE.InstancedMesh>(null);
     const target = useMemo(() => new THREE.Object3D(), []);
 
@@ -121,33 +125,36 @@ export default function GameOfLife() {
         // Update game state
         if (timeObj.current > UPDATE_INTERVAL_S) {
             timeObj.current = 0;
-            const grid = gridRef.current;
-            const nextGrid = nextGridRef.current;
 
-            for (let x = 0; x < GRID_SIZE; x++) {
-                for (let y = 0; y < GRID_SIZE; y++) {
-                    let neighbors = 0;
-                    for (let dx = -1; dx <= 1; dx++) {
-                        for (let dy = -1; dy <= 1; dy++) {
-                            if (dx === 0 && dy === 0) continue;
-                            const nx = (x + dx + GRID_SIZE) % GRID_SIZE; // Wrapping
-                            const ny = (y + dy + GRID_SIZE) % GRID_SIZE; // Wrapping
-                            if (grid[getIndex(nx, ny)]) neighbors++;
+            if (!isPaused) {
+                const grid = gridRef.current;
+                const nextGrid = nextGridRef.current;
+
+                for (let x = 0; x < GRID_SIZE; x++) {
+                    for (let y = 0; y < GRID_SIZE; y++) {
+                        let neighbors = 0;
+                        for (let dx = -1; dx <= 1; dx++) {
+                            for (let dy = -1; dy <= 1; dy++) {
+                                if (dx === 0 && dy === 0) continue;
+                                const nx = (x + dx + GRID_SIZE) % GRID_SIZE; // Wrapping
+                                const ny = (y + dy + GRID_SIZE) % GRID_SIZE; // Wrapping
+                                if (grid[getIndex(nx, ny)]) neighbors++;
+                            }
+                        }
+
+                        const idx = getIndex(x, y);
+                        if (grid[idx]) {
+                            nextGrid[idx] = neighbors === 2 || neighbors === 3;
+                        } else {
+                            nextGrid[idx] = neighbors === 3;
                         }
                     }
-
-                    const idx = getIndex(x, y);
-                    if (grid[idx]) {
-                        nextGrid[idx] = neighbors === 2 || neighbors === 3;
-                    } else {
-                        nextGrid[idx] = neighbors === 3;
-                    }
                 }
-            }
 
-            // Swap grids
-            for (let i = 0; i < grid.length; i++) {
-                grid[i] = nextGrid[i];
+                // Swap grids
+                for (let i = 0; i < grid.length; i++) {
+                    grid[i] = nextGrid[i];
+                }
             }
         }
 

@@ -13,7 +13,7 @@ const experiences = [
 
 const skills = {
     primaryStack: ["Golang", "Typescript", "Javascript", "Node.js", "Python", "React"],
-    tools: ["Express", "Gin", "PostgreSql", "MongoDB", "Redis", "Docker", "Kubernetes", "Terraform", "AWS", "Azure", "RabbitMQ"],
+    tools: ["PostgreSql", "MongoDB", "Redis", "Docker", "Kubernetes", "Terraform", "AWS", "Azure", "RabbitMQ", "Express", "Gin"],
 };
 
 export default function AboutExperienceSection() {

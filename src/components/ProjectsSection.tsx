@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { glassStyle, liveBadgeStyle } from '../styles/glassStyles';
 
 const projects = [
@@ -44,10 +43,10 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ onProjectSelect }: ProjectsSectionProps) {
     return (
-        <section id="projects" className="min-h-screen py-20 px-6 flex items-center">
+        <section id="projects" className="min-h-screen py-20 px-4 md:px-6 flex items-center">
             <div className="max-w-3xl mx-auto w-full">
                 <motion.h2
-                    className="text-4xl md:text-5xl font-bold mb-16 text-foreground"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-foreground tracking-tight px-2"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -67,7 +66,7 @@ export default function ProjectsSection({ onProjectSelect }: ProjectsSectionProp
                             transition={{ delay: i * 0.1 }}
                         >
                             <div
-                                className="rounded-xl p-6 flex items-center justify-between gap-4 transition-transform duration-300 group-hover:scale-[1.02]"
+                                className="rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-4 transition-transform duration-300 group-hover:scale-[1.02] sm:group-hover:scale-[1.03]"
                                 style={glassStyle}
                             >
                                 <div className="flex-1 min-w-0">
@@ -83,7 +82,6 @@ export default function ProjectsSection({ onProjectSelect }: ProjectsSectionProp
                                     </div>
                                     <p className="text-foreground/70 text-sm truncate">{p.desc}</p>
                                 </div>
-                                <ArrowRight size={20} className="text-accent/70 group-hover:text-accent transition-colors flex-shrink-0" />
                             </div>
                         </motion.button>
                     ))}

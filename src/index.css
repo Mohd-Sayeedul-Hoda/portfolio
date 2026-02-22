@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fadd9e; /* Quanta game of life cream background */
-  --foreground: #1c1c1c; /* Dark text */
-  --accent: #d94676; /* Magenta accent */
-  --accent-glow: rgba(217, 70, 118, 0.4);
+  --background: #fdf6e3;
+  /* Richer, softer premium cream background */
+  --foreground: #2d3748;
+  /* Softer, highly readable dark slate text */
+  --accent: #E11D48;
+  /* Vibrant, modern rose/magenta accent */
+  --accent-glow: rgba(225, 29, 72, 0.45);
 }
 
 body {

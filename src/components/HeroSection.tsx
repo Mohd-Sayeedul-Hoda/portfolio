@@ -4,19 +4,19 @@ import { glassStyle } from '../styles/glassStyles';
 
 export default function HeroSection() {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 md:px-6">
             <div className="max-w-3xl mx-auto w-full">
-                <div className="rounded-2xl p-10" style={glassStyle}>
+                <div className="rounded-3xl p-6 sm:p-8 md:p-12" style={glassStyle}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 md:mb-6 tracking-tight">
                             Mohd Sayeedul Hoda
                         </h1>
 
-                        <p className="text-lg text-foreground/70 max-w-xl mb-10 leading-relaxed">
+                        <p className="text-base sm:text-lg text-foreground/80 max-w-xl mb-8 md:mb-10 leading-relaxed font-medium">
                             I architect distributed systems and high-performance web applications backed by cloud-native infrastructure.
                         </p>
 

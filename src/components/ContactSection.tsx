@@ -4,18 +4,18 @@ import { glassStyle } from '../styles/glassStyles';
 
 export default function ContactSection() {
     return (
-        <section id="contact" className="min-h-screen py-20 px-6 flex items-center">
+        <section id="contact" className="min-h-screen py-20 px-4 md:px-6 flex items-center">
             <div className="max-w-2xl mx-auto w-full">
-                <div className="rounded-2xl p-10" style={glassStyle}>
+                <div className="rounded-3xl p-6 sm:p-8 md:p-12" style={glassStyle}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6 tracking-tight">
                             Get in Touch
                         </h1>
 
-                        <p className="text-lg text-foreground/70 leading-relaxed mb-10">
+                        <p className="text-base sm:text-lg text-foreground/80 leading-relaxed mb-8 md:mb-10 font-medium">
                             I’m always happy to chat about Go routines, Kubernetes,
                             or the latest in frontend ecosystems. Send an email, and let’s connect!
                         </p>

@@ -1,19 +1,19 @@
 // Shared glassmorphism styles - update here to apply everywhere
 
 export const glassStyle = {
-    background: 'rgba(255, 255, 255, 0.7)',
-    backdropFilter: 'blur(8px)',
-    WebkitBackdropFilter: 'blur(8px)',
-    border: '1px solid rgba(255, 255, 255, 0.5)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+    background: 'rgba(255, 255, 255, 0.85)',
+    backdropFilter: 'blur(16px)',
+    WebkitBackdropFilter: 'blur(16px)',
+    border: '1px solid rgba(255, 255, 255, 0.8)',
+    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
 };
 
 export const glassCardStyle = {
-    background: 'rgba(255, 255, 255, 0.58)',
-    backdropFilter: 'blur(0px)',
-    WebkitBackdropFilter: 'blur(0px)',
-    border: '1px solid rgba(255, 255, 255, 0.4)',
-    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+    background: 'rgba(255, 255, 255, 0.70)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
+    border: '1px solid rgba(255, 255, 255, 0.6)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.06)',
     borderRadius: '1rem',
     padding: '2.5rem',
 };

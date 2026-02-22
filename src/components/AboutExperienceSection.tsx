@@ -18,19 +18,19 @@ const skills = {
 
 export default function AboutExperienceSection() {
     return (
-        <section id="about" className="min-h-screen py-20 px-6 flex items-center">
+        <section id="about" className="min-h-screen py-20 px-4 md:px-6 flex items-center">
             <div className="max-w-3xl mx-auto w-full">
                 {/* Experience Card */}
-                <div className="rounded-2xl p-10" style={glassStyle}>
+                <div className="rounded-3xl p-6 sm:p-8 md:p-12" style={glassStyle}>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-center mb-16"
+                        className="text-center mb-12 md:mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">Experience</h2>
-                        <p className="text-foreground/70 text-lg">2+ years building scalable applications</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-foreground tracking-tight">Experience</h2>
+                        <p className="text-foreground/80 text-base md:text-lg font-medium">2+ years building scalable applications</p>
                     </motion.div>
 
                     <motion.div

@@ -31,7 +31,7 @@ const projects: Record<string, Project> = {
     'go-web-proxy': {
         title: 'Go Web Proxy',
         desc: 'Web Proxy with LRU Caching',
-        fullDesc: 'High-performance Go web proxy featuring a custom LRU cache with $O(1)$ search and eviction to reduce data retrieval latency',
+        fullDesc: 'High-performance Go web proxy featuring a custom LRU cache with O(1) search and eviction to reduce data retrieval latency',
         tech: ['Go', 'HTTP/Net', 'Sync/Mutex', 'LRU-Cache'],
         link: 'https://github.com/Mohd-Sayeedul-Hoda/proxy_with_lru_cache',
         live: false,
@@ -59,8 +59,8 @@ export default function ProjectDetail({ projectSlug, onBack }: ProjectDetailProp
     }
 
     return (
-        <section className="min-h-screen py-20 px-6 flex items-center">
-            <div className="max-w-3xl mx-auto w-full">
+        <section className="min-h-[100dvh] py-20 px-4 md:px-6 flex flex-col">
+            <div className="max-w-3xl mx-auto w-full my-auto">
                 <div className="rounded-2xl p-10" style={glassStyle}>
                     {/* Back Button */}
                     <motion.button

@@ -18,8 +18,8 @@ const skills = {
 
 export default function AboutExperienceSection() {
     return (
-        <section id="about" className="min-h-screen py-20 px-4 md:px-6 flex items-center">
-            <div className="max-w-3xl mx-auto w-full">
+        <section id="about" className="min-h-[100dvh] py-20 px-4 md:px-6 flex flex-col">
+            <div className="max-w-3xl mx-auto w-full my-auto">
                 {/* Experience Card */}
                 <div className="rounded-3xl p-6 sm:p-8 md:p-12" style={glassStyle}>
 

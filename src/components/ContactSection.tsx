@@ -4,8 +4,8 @@ import { glassStyle } from '../styles/glassStyles';
 
 export default function ContactSection() {
     return (
-        <section id="contact" className="min-h-screen py-20 px-4 md:px-6 flex items-center">
-            <div className="max-w-2xl mx-auto w-full">
+        <section id="contact" className="min-h-[100dvh] py-20 px-4 md:px-6 flex flex-col">
+            <div className="max-w-2xl mx-auto w-full my-auto">
                 <div className="rounded-3xl p-6 sm:p-8 md:p-12" style={glassStyle}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ export default function ContactSection() {
                         </p>
 
                         <motion.a
-                            href="mailto:contact@example.com"
+                            href="mailto:him@sayeedhoda.com"
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold"
                             style={{
                                 background: '#5c5046',

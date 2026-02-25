@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Home, Briefcase, FolderGit2, Mail } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Home, Briefcase, FolderGit2, Mail, Menu, X } from 'lucide-react';
 import clsx from 'clsx';
 import { glassStyle } from '../styles/glassStyles';
 
@@ -16,6 +17,13 @@ interface NavigationProps {
 }
 
 export default function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const handleNavClick = (id: string) => {
+        setCurrentPage(id);
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <>
             {/* Desktop Navigation - Sidebar */}
@@ -52,31 +60,48 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
                 </div>
             </nav>
 
-            {/* Mobile/Tablet Navigation - Bottom Dock */}
-            <nav className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-                <div
-                    className="rounded-full px-4 py-3 flex items-center gap-4 shadow-lg"
+            {/* Mobile/Tablet Navigation - Hamburger */}
+            <div className="lg:hidden fixed top-4 left-4 z-50">
+                <motion.button
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    className="p-3 rounded-full shadow-lg"
                     style={glassStyle}
+                    whileTap={{ scale: 0.95 }}
                 >
-                    {navItems.map((item) => {
-                        const Icon = item.icon;
-                        const isActive = currentPage === item.id;
-                        return (
-                            <motion.button
-                                key={item.id}
-                                onClick={() => setCurrentPage(item.id)}
-                                className={clsx(
-                                    "p-3 rounded-full transition-all",
-                                    isActive ? "bg-accent/20 text-accent" : "text-foreground/60 hover:text-foreground hover:bg-foreground/10"
-                                )}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Icon size={20} className={clsx("transition-transform duration-300", isActive && "scale-110")} />
-                            </motion.button>
-                        );
-                    })}
-                </div>
-            </nav>
+                    {isMobileMenuOpen ? <X size={24} className="text-foreground" /> : <Menu size={24} className="text-foreground" />}
+                </motion.button>
+
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, transformOrigin: "top left" }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-16 left-0 rounded-2xl flex flex-col py-2 w-48 shadow-xl overflow-hidden"
+                            style={glassStyle}
+                        >
+                            {navItems.map((item) => {
+                                const Icon = item.icon;
+                                const isActive = currentPage === item.id;
+                                return (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => handleNavClick(item.id)}
+                                        className={clsx(
+                                            "flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors w-full text-left",
+                                            isActive ? "bg-accent/10 text-accent" : "text-foreground/80 hover:bg-foreground/5 hover:text-foreground"
+                                        )}
+                                    >
+                                        <Icon size={18} />
+                                        {item.label}
+                                    </button>
+                                );
+                            })}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
         </>
     );
 }

@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden text-foreground font-sans bg-[var(--background)]">
+    <div className="relative w-full h-[100dvh] overflow-hidden text-foreground font-sans bg-[var(--background)]">
       <BackgroundSimulation isPaused={isSimulationPaused} />
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
@@ -61,7 +61,7 @@ function App() {
       </motion.button>
 
       {/* Portfolio Content Layer */}
-      <div className="relative z-10 w-full h-screen flex flex-col pointer-events-auto overflow-y-auto">
+      <div className="relative z-10 w-full h-[100dvh] flex flex-col pointer-events-auto overflow-y-auto">
         <AnimatePresence mode="wait">
           {renderPage()}
         </AnimatePresence>

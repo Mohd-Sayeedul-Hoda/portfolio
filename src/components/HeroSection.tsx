@@ -4,8 +4,8 @@ import { glassStyle } from '../styles/glassStyles';
 
 export default function HeroSection() {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 md:px-6">
-            <div className="max-w-3xl mx-auto w-full">
+        <section id="home" className="min-h-[100dvh] py-20 px-4 md:px-6 flex flex-col relative overflow-hidden">
+            <div className="max-w-3xl mx-auto w-full my-auto">
                 <div className="rounded-3xl p-6 sm:p-8 md:p-12" style={glassStyle}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ export default function HeroSection() {
                         </p>
 
                         <motion.div
-                            className="flex items-center gap-6"
+                            className="flex flex-wrap items-center gap-4 sm:gap-6"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}

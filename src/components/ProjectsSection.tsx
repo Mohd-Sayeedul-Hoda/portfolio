@@ -43,8 +43,8 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ onProjectSelect }: ProjectsSectionProps) {
     return (
-        <section id="projects" className="min-h-screen py-20 px-4 md:px-6 flex items-center">
-            <div className="max-w-3xl mx-auto w-full">
+        <section id="projects" className="min-h-[100dvh] py-20 px-4 md:px-6 flex flex-col">
+            <div className="max-w-3xl mx-auto w-full my-auto">
                 <motion.h2
                     className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 md:mb-16 text-foreground tracking-tight px-2"
                     initial={{ opacity: 0, y: 20 }}
